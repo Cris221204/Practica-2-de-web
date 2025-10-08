@@ -1,0 +1,13 @@
+# Archivos de compilación
+target/
+*.war
+*.ear
+
+# Archivos de IDE
+.idea/
+*.iml
+.mvn/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,214 @@
+/* ===== ESTILOS ESPECÍFICOS PARA MOSTRAR DATOS ===== */
+
+/* Contenedor principal de la página */
+.mostrar-datos-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Título principal */
+.titulo-principal {
+    color: #ff0000; /* ROJO */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #ff0000;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Contenedores de tablas */
+.tabla-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    border-left: 5px solid #0000ff; /* AZUL */
+    transition: transform 0.3s ease;
+}
+
+.tabla-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Subtítulos de secciones */
+.subtitulo-seccion {
+    color: #0000ff; /* AZUL */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0000ff;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilos para tablas */
+.tabla-datos {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-datos thead {
+    background: linear-gradient(135deg, #0000ff, #2980b9); /* AZUL degradado */
+}
+
+.tabla-datos th {
+    color: white;
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tabla-datos td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e9ecef;
+    color: #333;
+}
+
+.tabla-datos tbody tr {
+    transition: all 0.3s ease;
+}
+
+.tabla-datos tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.01);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.tabla-datos tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.tabla-datos tbody tr:nth-child(even):hover {
+    background-color: #e9ecef;
+}
+
+/* Mensaje cuando no hay datos */
+.sin-datos {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+    font-style: italic;
+    font-size: 1.1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Botones de acción */
+.botones-accion {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.boton-accion {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: #0000ff; /* AZUL */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #0000ff;
+}
+
+.boton-accion:hover {
+    background: white;
+    color: #0000ff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,255,0.3);
+}
+
+.boton-accion.secundario {
+    background: #6c757d;
+    border-color: #6c757d;
+}
+
+.boton-accion.secundario:hover {
+    background: white;
+    color: #6c757d;
+}
+
+/* Badges para datos importantes */
+.badge-precio {
+    background: #28a745;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.badge-stock {
+    background: #ffc107;
+    color: #212529;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.badge-categoria {
+    background: #17a2b8;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mostrar-datos-container {
+        padding: 20px 15px;
+    }
+
+    .titulo-principal {
+        font-size: 2rem;
+    }
+
+    .subtitulo-seccion {
+        font-size: 1.4rem;
+    }
+
+    .tabla-container {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .tabla-datos {
+        font-size: 0.9rem;
+    }
+
+    .tabla-datos th,
+    .tabla-datos td {
+        padding: 10px 8px;
+    }
+
+    .botones-accion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boton-accion {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+}

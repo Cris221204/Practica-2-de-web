@@ -1,0 +1,441 @@
+/* ===== ESTILOS PARA FORMULARIOS DINÁMICOS (PRODUCTOS Y SERVICIOS) ===== */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+/* Ocultar/mostrar formularios */
+.hidden {
+    display: none !important;
+}
+
+/* Contenedor principal */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-left: 5px solid #0000ff;
+}
+
+/* Título ROJO */
+h1 {
+    color: #ff0000 !important;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #ff0000;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grupos de formulario */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* Etiquetas AZULES */
+label {
+    display: block;
+    color: #0000ff !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Campos de formulario */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0000ff;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Textarea específico */
+textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Campos numéricos */
+input[type="number"] {
+    text-align: right;
+}
+
+/* Botones */
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+/* Botón Guardar (VERDE) */
+button[onclick="enviarFormulario()"] {
+    background: #28a745;
+    color: white;
+}
+
+button[onclick="enviarFormulario()"]:hover {
+    background: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* Botón Cancelar (GRIS) */
+button[onclick="history.back()"] {
+    background: #6c757d;
+    color: white;
+}
+
+button[onclick="history.back()"]:hover {
+    background: #5a6268;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+}
+
+/* Enlace Volver */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #0000ff;
+    text-decoration: underline;
+    transform: translateX(-5px);
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA MODIFICAR ===== */
+
+/* Sección de búsqueda */
+.busqueda {
+    background: #e3f2fd;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid #0000ff;
+}
+
+.busqueda h3 {
+    color: #0000ff !important;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Grupo de búsqueda específico */
+.busqueda .form-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 0;
+}
+
+.busqueda .form-group label {
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.busqueda input[type="number"] {
+    flex: 1;
+    max-width: 200px;
+}
+
+/* Botón de búsqueda específico */
+.busqueda button {
+    background: #0000ff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.busqueda button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,255,0.2);
+}
+
+/* Estados del formulario */
+form[style*="opacity: 0.5"] {
+    pointer-events: none;
+}
+
+form[style*="opacity: 1"] {
+    pointer-events: all;
+    transition: opacity 0.3s ease;
+}
+
+/* Mensaje de estado */
+.estado-formulario {
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.estado-inactivo {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.estado-activo {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Botones principales para modificar */
+button[onclick="enviarModificacion()"] {
+    background: #ffc107; /* AMARILLO para modificar */
+    color: #212529;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+button[onclick="enviarModificacion()"]:hover {
+    background: #e0a800;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+}
+
+/* Contenedor de botones principales */
+.botones-principales {
+    text-align: center;
+    margin: 30px 0 20px 0;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA ELIMINAR ===== */
+
+/* Alerta de advertencia para eliminar */
+.alert-warning {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+}
+
+.advertencia {
+    color: #856404;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.alert-warning p {
+    color: #856404;
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Contenedor de botones para eliminar */
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Botón Eliminar (ROJO) */
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Botón Cancelar para eliminar (actualizado) */
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+}
+
+/* Texto centrado */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+/* Borde izquierdo ROJO para formulario de eliminar */
+.form-container.eliminar {
+    border-left: 5px solid #ff0000;
+}
+
+/* Estilos específicos para el input de ID en eliminar */
+#id-eliminar {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid #dc3545;
+}
+
+#id-eliminar:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .form-container {
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    label {
+        font-size: 1.1rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /* Responsive para búsqueda */
+    .busqueda .form-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .busqueda input[type="number"] {
+        max-width: none;
+    }
+
+    .busqueda button {
+        width: 100%;
+    }
+
+    .botones-principales {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botones-principales button {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Responsive para formulario de eliminar */
+    .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-danger,
+    .btn-secondary {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .alert-warning {
+        padding: 20px 15px;
+    }
+
+    .advertencia {
+        font-size: 1.2rem;
+    }
+}
