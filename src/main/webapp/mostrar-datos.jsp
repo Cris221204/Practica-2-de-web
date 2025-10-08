@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="CSS/estilos-base.css">
-  <link rel="stylesheet" href="CSS/mostrar-datos.css">
+  <link rel="stylesheet" href="https://cris221204.github.io/Practica-2-de-web/CSS/estilos-base.css">
+  <link rel="stylesheet" href="https://cris221204.github.io/Practica-2-de-web/CSS/mostrar-datos.css">
   <title>Mostrar Datos - MotopasionMX</title>
   <meta charset="UTF-8">
 </head>
